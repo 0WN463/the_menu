@@ -21,7 +21,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_01_040816) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "type"
     t.string "identifier"
     t.string "label"
     t.string "description"

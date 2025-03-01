@@ -10,6 +10,15 @@ module Types
       null: false,
       description: "Return a list of menus"
   
+      field :sections,
+      [Types::SectionType],
+      null: false,
+      description: "Return a list of sections"
+  
+      def sections
+        Section.all
+      end
+
       def menus
         Menu.all
       end

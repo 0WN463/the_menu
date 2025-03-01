@@ -28,7 +28,7 @@ standard_section = Section.find_or_create_by!(identifier: "unmodifiable_section"
   )
 end
 
-Section.find_or_create_by!(identifier: "modifiable_section") do |section|
+customizable_section = Section.find_or_create_by!(identifier: "modifiable_section") do |section|
   section.label = "Customized Dishes"
   section.description = "Build your own dish here!"
 end
@@ -42,7 +42,7 @@ Item.find_or_create_by!(identifier: "saba") do |item|
 
   SectionItem.create!(
     section: standard_section,
-    item: item
+    item: item,
   )
 end
 
@@ -54,7 +54,7 @@ Item.find_or_create_by!(identifier: "sanma") do |item|
 
   SectionItem.create!(
     section: standard_section,
-    item: item
+    item: item,
   )
 end
 
@@ -66,6 +66,31 @@ Item.find_or_create_by!(identifier: "yakisobi") do |item|
 
   SectionItem.create!(
     section: standard_section,
-    item: item
+    item: item,
+  )
+end
+
+
+Item.find_or_create_by!(identifier: "gyudon") do |item|
+  #item.type = "Product"
+  item.label = "Gyudon"
+  item.description = "Customizable beef bowl"
+  item.price = 10.90
+
+  SectionItem.create!(
+    section: customizable_section,
+    item: item,
+  )
+
+
+  bowl_size = ModifierGroup.find_or_create_by!(identifier: "bowl_size") do |item|
+    item.label = "Bowl Size"
+    item.selection_required_min = 1
+    item.selection_required_max = 1
+  end
+
+  ItemModifierGroup.create!(
+    modifier_group: bowl_size,
+    item: item,
   )
 end

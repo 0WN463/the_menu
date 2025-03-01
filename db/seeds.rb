@@ -19,7 +19,7 @@ end
 
 
 Section.find_or_create_by!(identifier: "unmodifiable_section") do |section|
-  section.label = "Standard Menu"
+  section.label = "Standard Dishes"
   section.description = "Find all our dishes here!"
   MenuSection.create!(
     menu: menu,
@@ -29,7 +29,7 @@ Section.find_or_create_by!(identifier: "unmodifiable_section") do |section|
 end
 
 Section.find_or_create_by!(identifier: "modifiable_section") do |section|
-  section.label = "Customized Menu"
+  section.label = "Customized Dishes"
   section.description = "Build your own dish here!"
 end
 

@@ -6,10 +6,13 @@ module Mutations
 
     field :menu, Types::MenuType, null: false
 
-    argument :menu_input, Types::MenuInputType, required: true
+    argument :label, String, required: true
+    argument :state, String, required: false
+    argument :start_date, GraphQL::Types::ISO8601Date, required: false
+    argument :end_date, GraphQL::Types::ISO8601Date, required: false
 
-    def resolve(menu_input:)
-      menu = ::Menu.new(**menu_input)
+    def resolve(label:, state:"", start_date:nil, end_date:nil)
+      menu = ::Menu.new(label:, state:, start_date:, end_date:)
       raise GraphQL::ExecutionError.new "Error creating menu", extensions: menu.errors.to_hash unless menu.save
 
       { menu: menu }

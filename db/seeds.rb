@@ -83,10 +83,20 @@ Item.find_or_create_by!(identifier: "gyudon") do |item|
   )
 
 
-  bowl_size = ModifierGroup.find_or_create_by!(identifier: "bowl_size") do |item|
-    item.label = "Bowl Size"
-    item.selection_required_min = 1
-    item.selection_required_max = 1
+  bowl_size = ModifierGroup.find_or_create_by!(identifier: "bowl_size") do |bowl|
+    bowl.label = "Bowl Size"
+    bowl.selection_required_min = 1
+    bowl.selection_required_max = 1
+
+   ["small", "medium", "large", "extra-large"].each_with_index do |size, i|
+      Modifier.find_or_create_by!(label: size) do |mod|
+        mod.label = size
+        mod.display_order = i
+        mod.price_override = 0.5 * i
+        mod.modifier_group = bowl
+        mod.item = item
+      end
+    end
   end
 
   ItemModifierGroup.create!(

@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+Menu.find_or_create_by!(identifier:"menu_id") do |menu|
+  menu.label = "The Grand Menu"
+  menu.state = "ready"
+  menu.start_date = DateTime.now()
+  menu.end_date = DateTime.now()
+end

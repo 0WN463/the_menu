@@ -79,6 +79,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_01_040816) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_section_items_on_item_id"
+    t.index ["section_id", "item_id"], name: "index_section_items_on_section_id_and_item_id", unique: true
     t.index ["section_id"], name: "index_section_items_on_section_id"
   end
 

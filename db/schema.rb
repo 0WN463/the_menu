@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_01_040816) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_01_161313) do
   create_table "item_modifier_groups", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "modifier_group_id", null: false
@@ -67,6 +67,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_01_040816) do
     t.float "price_override"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "label"
     t.index ["item_id"], name: "index_modifiers_on_item_id"
     t.index ["modifier_group_id"], name: "index_modifiers_on_modifier_group_id"
   end

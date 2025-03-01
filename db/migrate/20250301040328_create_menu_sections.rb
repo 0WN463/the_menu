@@ -7,5 +7,7 @@ class CreateMenuSections < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+
+    add_index :menu_sections, [:menu_id, :section_id], unique: true
   end
 end

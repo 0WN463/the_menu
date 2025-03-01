@@ -36,6 +36,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_01_040816) do
     t.integer "display_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["menu_id", "section_id"], name: "index_menu_sections_on_menu_id_and_section_id", unique: true
     t.index ["menu_id"], name: "index_menu_sections_on_menu_id"
     t.index ["section_id"], name: "index_menu_sections_on_section_id"
   end

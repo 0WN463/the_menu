@@ -2,6 +2,7 @@
 
 module Types
   class MutationType < Types::BaseObject
+    field :menu_delete, mutation: Mutations::MenuDelete
     field :menu_create, mutation: Mutations::MenuCreate
     # TODO: remove me
     field :test_field, String, null: false,

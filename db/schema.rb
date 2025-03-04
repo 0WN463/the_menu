@@ -68,6 +68,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_01_040816) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_modifiers_on_item_id"
+    t.index ["modifier_group_id", "item_id"], name: "index_modifiers_on_modifier_group_id_and_item_id", unique: true
     t.index ["modifier_group_id"], name: "index_modifiers_on_modifier_group_id"
   end
 

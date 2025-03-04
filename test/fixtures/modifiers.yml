@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 first_modifier:
-  item: second_item
+  item: first_item
   modifier_group: first_modifier_group
   display_order: 1
   default_quantity: 1

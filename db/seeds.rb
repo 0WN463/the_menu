@@ -11,7 +11,7 @@
 
 menu = Menu.find_or_create_by!(identifier:"menu_id") do |menu|
   menu.label = "The Grand Menu"
-  menu.state = "ready"
+  menu.state = "published"
   menu.start_date = DateTime.now()
   menu.end_date = DateTime.now()
 end
@@ -35,7 +35,7 @@ end
 
 
 Item.find_or_create_by!(identifier: "saba") do |item|
-  #item.type = "Product"
+  item.type = "product"
   item.label = "Saba Shioyaki"
   item.description = "Roasted salted Saba fish"
   item.price = 10.90
@@ -47,7 +47,7 @@ Item.find_or_create_by!(identifier: "saba") do |item|
 end
 
 Item.find_or_create_by!(identifier: "sanma") do |item|
-  #item.type = "Product"
+  item.type = "product"
   item.label = "Sanma Shioyaki"
   item.description = "Roasted salted Sanma fish"
   item.price = 12.90
@@ -59,7 +59,7 @@ Item.find_or_create_by!(identifier: "sanma") do |item|
 end
 
 Item.find_or_create_by!(identifier: "yakisobi") do |item|
-  #item.type = "Product"
+  item.type = "product"
   item.label = "Yaki Soba"
   item.description = "Stir-fried soba noodles. Commonly seen in festivals"
   item.price = 8.90
@@ -72,7 +72,7 @@ end
 
 
 Item.find_or_create_by!(identifier: "gyudon") do |item|
-  #item.type = "Product"
+  item.item_type = "product"
   item.label = "Gyudon"
   item.description = "Customizable beef bowl"
   item.price = 10.90

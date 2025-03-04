@@ -21,12 +21,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_01_040816) do
   end
 
   create_table "items", force: :cascade do |t|
+    t.string "item_type"
     t.string "identifier"
     t.string "label"
     t.string "description"
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["identifier"], name: "index_items_on_identifier", unique: true
   end
 
   create_table "menu_sections", force: :cascade do |t|

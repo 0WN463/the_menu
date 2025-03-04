@@ -1,9 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  item: one
-  modifier_group: one
+  item: first_item
+  modifier_group: first_modifier_group
 
-two:
-  item: two
-  modifier_group: two

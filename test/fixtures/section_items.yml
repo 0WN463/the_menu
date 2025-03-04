@@ -2,10 +2,10 @@
 
 one:
   section: first_section
-  item: one
+  item: first_item
   display_order: 1
 
 two:
   section: first_section
-  item: two
+  item: second_item
   display_order: 1

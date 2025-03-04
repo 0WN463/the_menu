@@ -7,4 +7,11 @@ class MenuTest < ActiveSupport::TestCase
 
     assert_not_includes Menu.all, menu, "conflicted menu should not be saved"
   end
+
+  test "able to create menu" do
+    menu = Menu.new(identifier: "other_identifier", label:"new menu", state:"draft")
+    menu.save()
+
+    assert_includes Menu.all, menu, "conflicted menu should not be saved"
+  end
 end

@@ -10,6 +10,10 @@ module Types
       null: false,
       description: "Return a list of menus"
   
+      def menus
+        Menu.all
+      end
+
       field :sections,
       [Types::SectionType],
       null: false,
@@ -19,8 +23,22 @@ module Types
         Section.all
       end
 
-      def menus
-        Menu.all
+      field :items,
+      [Types::ItemType],
+      null: false,
+      description: "Return a list of items"
+  
+      def items
+         Item.all
+      end
+
+      field :modifier_groups,
+      [Types::ModifierGroupType],
+      null: false,
+      description: "Return a list of modifier groups"
+  
+      def modifier_groups
+         ModifierGroup.all
       end
   end
 end

@@ -6,10 +6,14 @@ module Mutations
 
     field :menu, Types::MenuType, null: false
 
-    argument :id, ID, required: true
+    argument :identifier, ID, required: true
 
-    def resolve(id:)
-      menu = ::Menu.find(id)
+    def resolve(identifier:)
+      menu = ::Menu.find_by(identifier:identifier)
+      if menu == nil then
+        raise GraphQL::ExecutionError.new "menu does not exists"
+      end
+
       raise GraphQL::ExecutionError.new "Error deleting menu", extensions: menu.errors.to_hash unless menu.destroy!
 
       { menu: menu }

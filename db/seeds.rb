@@ -102,14 +102,14 @@ Item.find_or_create_by!(identifier: "gyudon") do |item|
         item.label = topping
         item.description = "topping for beef bowl"
         item.price = 0.90
-      end
 
 
-      Modifier.create!() do |mod|
-        mod.display_order = i
-        mod.price_override = 0.5 * i
-        mod.modifier_group = group
-        mod.item = topping_item
+        Modifier.create!() do |mod|
+          mod.display_order = i
+          mod.price_override = 0.5 * i
+          mod.modifier_group = group
+          mod.item = item
+        end
       end
     end
   end

@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  section: one
+  section: first_section
   item: one
   display_order: 1
 
 two:
-  section: two
+  section: first_section
   item: two
   display_order: 1

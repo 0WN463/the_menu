@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+first_menu:
   identifier: first_menu
   label: First Menu
   state: draft
   start_date: 2025-03-01
   end_date: 2025-03-01
 
-two:
+second_menu:
   identifier: second_menu
   label: Second Menu
   state: draft

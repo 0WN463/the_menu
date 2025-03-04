@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  menu: one
-  section: one
+  menu: first_menu
+  section: first_section
   display_order: 1
 
 two:
-  menu: two
-  section: two
+  menu: first_menu
+  section: second_section
+  display_order: 2
+
+three:
+  menu: second_menu
+  section: first_section
   display_order: 1

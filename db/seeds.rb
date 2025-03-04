@@ -33,6 +33,12 @@ customizable_section = Section.find_or_create_by!(identifier: "modifiable_sectio
   section.identifier = "custom_dishes"
   section.label = "Customized Dishes"
   section.description = "Build your own dish here!"
+
+  MenuSection.create!(
+    menu: menu,
+    section: section,
+    display_order: 1,
+  )
 end
 
 

@@ -19,6 +19,7 @@ end
 
 
 standard_section = Section.find_or_create_by!(identifier: "unmodifiable_section") do |section|
+  section.identifier = "standard_dishes"
   section.label = "Standard Dishes"
   section.description = "Find all our dishes here!"
   MenuSection.create!(
@@ -29,13 +30,15 @@ standard_section = Section.find_or_create_by!(identifier: "unmodifiable_section"
 end
 
 customizable_section = Section.find_or_create_by!(identifier: "modifiable_section") do |section|
+  section.identifier = "custom_dishes"
   section.label = "Customized Dishes"
   section.description = "Build your own dish here!"
 end
 
 
 Item.find_or_create_by!(identifier: "saba") do |item|
-  item.type = "product"
+  item.identifier = "saba"
+  item.item_type = "product"
   item.label = "Saba Shioyaki"
   item.description = "Roasted salted Saba fish"
   item.price = 10.90
@@ -47,7 +50,8 @@ Item.find_or_create_by!(identifier: "saba") do |item|
 end
 
 Item.find_or_create_by!(identifier: "sanma") do |item|
-  item.type = "product"
+  item.identifier = "sanma"
+  item.item_type = "product"
   item.label = "Sanma Shioyaki"
   item.description = "Roasted salted Sanma fish"
   item.price = 12.90
@@ -58,8 +62,9 @@ Item.find_or_create_by!(identifier: "sanma") do |item|
   )
 end
 
-Item.find_or_create_by!(identifier: "yakisobi") do |item|
-  item.type = "product"
+Item.find_or_create_by!(identifier: "yakisoba") do |item|
+  item.identifier = "yakisoba"
+  item.item_type = "product"
   item.label = "Yaki Soba"
   item.description = "Stir-fried soba noodles. Commonly seen in festivals"
   item.price = 8.90
@@ -72,6 +77,7 @@ end
 
 
 Item.find_or_create_by!(identifier: "gyudon") do |item|
+  item.identifier = "gyudon"
   item.item_type = "product"
   item.label = "Gyudon"
   item.description = "Customizable beef bowl"
@@ -83,24 +89,33 @@ Item.find_or_create_by!(identifier: "gyudon") do |item|
   )
 
 
-#  bowl_size = ModifierGroup.find_or_create_by!(identifier: "bowl_size") do |bowl|
-#    bowl.label = "Bowl Size"
-#    bowl.selection_required_min = 1
-#    bowl.selection_required_max = 1
-#
-#   ["small", "medium", "large", "extra-large"].each_with_index do |size, i|
-#      Modifier.find_or_create_by!(label: size) do |mod|
-#        mod.label = size
-#        mod.display_order = i
-#        mod.price_override = 0.5 * i
-#        mod.modifier_group = bowl
-#        mod.item = item
-#      end
-#    end
-#  end
-#
-#  ItemModifierGroup.create!(
-#    modifier_group: bowl_size,
-#    item: item,
-#  )
+  toppings = ModifierGroup.find_or_create_by!(identifier: "toppings") do |group|
+    group.identifier = "topping"
+    group.label = "Toppings"
+    group.selection_required_min = 1
+    group.selection_required_max = 3
+
+   ["egg", "ginger", "cheese"].each_with_index do |topping, i|
+      topping_item = Item.find_or_create_by!(identifier: topping) do |item|
+        item.identifier = topping
+        item.item_type = "component"
+        item.label = topping
+        item.description = "topping for beef bowl"
+        item.price = 0.90
+      end
+
+
+      Modifier.create!() do |mod|
+        mod.display_order = i
+        mod.price_override = 0.5 * i
+        mod.modifier_group = group
+        mod.item = topping_item
+      end
+    end
+  end
+
+  ItemModifierGroup.create!(
+    modifier_group: toppings,
+    item: item,
+  )
 end

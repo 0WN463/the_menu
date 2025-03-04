@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  identifier: MyString
-  label: MyString
-  state: MyString
+  identifier: first_menu
+  label: First Menu
+  state: draft
   start_date: 2025-03-01
   end_date: 2025-03-01
 
 two:
-  identifier: MyString
-  label: MyString
-  state: MyString
+  identifier: second_menu
+  label: Second Menu
+  state: draft
   start_date: 2025-03-01
   end_date: 2025-03-01

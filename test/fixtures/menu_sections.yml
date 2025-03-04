@@ -6,11 +6,6 @@ one:
   display_order: 1
 
 two:
-  menu: first_menu
-  section: second_section
-  display_order: 2
-
-three:
   menu: second_menu
   section: first_section
   display_order: 1

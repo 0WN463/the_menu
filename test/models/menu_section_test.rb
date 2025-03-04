@@ -6,11 +6,11 @@ class MenuSectionTest < ActiveSupport::TestCase
     section = Section.find_by(identifier: "first_section")
 
     assert_raises do
-      menu_section = MenuSection.create(menu: menu, section: section)
+      MenuSection.create(menu: menu, section: section)
     end
   end
 
-  test "able to add new section into menu" do
+  test "able to add new item into section" do
     menu = Menu.find_by(identifier: "first_menu")
     section = Section.find_by(identifier: "second_section")
     menu_section = MenuSection.create!(menu: menu, section: section)

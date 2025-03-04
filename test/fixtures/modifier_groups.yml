@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 first_modifier_group:
-  identifier: MyString
-  label: MyString
+  identifier: first_group
+  label: first group
   selection_required_min: 1
   selection_required_max: 1

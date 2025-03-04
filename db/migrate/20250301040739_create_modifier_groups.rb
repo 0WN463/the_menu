@@ -8,5 +8,7 @@ class CreateModifierGroups < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+
+    add_index(:menus, [:identifier], unique: true)
   end
 end

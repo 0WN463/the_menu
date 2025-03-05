@@ -10,9 +10,9 @@ module Mutations
     argument :modifier_group_id, ID, required: true
 
     def resolve(item_id:, modifier_group_id:)
-      item = ::Item.find_by(identifier:item_id)
-      group = :: ModifierGroup.find_by(identifier:modifier_group_id)
-      modifier = Modifier::find_by(item:, modifier_group:group)
+      item = ::Item.find_by(identifier: item_id)
+      group = :: ModifierGroup.find_by(identifier: modifier_group_id)
+      modifier = Modifier.find_by(item:, modifier_group: group)
 
       if modifier == nil then
         raise GraphQL::ExecutionError.new "item is not in modifier group"
@@ -20,7 +20,7 @@ module Mutations
 
       raise GraphQL::ExecutionError.new "Error removing item from modifier group", extensions: modifier.errors.to_hash unless modifier.destroy!
 
-      {modifier: modifier}
+      { modifier: modifier }
     end
   end
 end

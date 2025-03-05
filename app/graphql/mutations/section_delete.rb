@@ -9,7 +9,7 @@ module Mutations
     argument :identifier, ID, required: true
 
     def resolve(identifier:)
-      section = ::Section.find_by(identifier:identifier)
+      section = ::Section.find_by(identifier: identifier)
       raise GraphQL::ExecutionError.new "Error deleting section", extensions: section.errors.to_hash unless section.destroy!
 
       { section: section }

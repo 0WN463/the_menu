@@ -9,7 +9,7 @@ module Mutations
     argument :identifier, ID, required: true
 
     def resolve(identifier:)
-      item = ::Item.find_by(identifier:identifier)
+      item = ::Item.find_by(identifier: identifier)
 
       if item == nil then
         raise GraphQL::ExecutionError.new "item does not exists"

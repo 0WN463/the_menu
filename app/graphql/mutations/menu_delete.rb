@@ -9,7 +9,7 @@ module Mutations
     argument :identifier, ID, required: true
 
     def resolve(identifier:)
-      menu = ::Menu.find_by(identifier:identifier)
+      menu = ::Menu.find_by(identifier: identifier)
       if menu == nil then
         raise GraphQL::ExecutionError.new "menu does not exists"
       end

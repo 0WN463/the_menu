@@ -13,3 +13,6 @@ second_menu:
   state: draft
   start_date: 2025-03-01
   end_date: 2025-03-01
+
+free_menu:
+  identifier: free_menu

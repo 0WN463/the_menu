@@ -10,9 +10,9 @@ module Mutations
     argument :item_id, ID, required: true
 
     def resolve(modifier_group_id:, item_id:)
-      group = ::ModifierGroup.find_by(identifier:modifier_group_id)
-      item= ::Item.find_by(identifier:item_id)
-      modifier_group = ItemModifierGroup::find_by(modifier_group:group, item:)
+      group = ::ModifierGroup.find_by(identifier: modifier_group_id)
+      item= ::Item.find_by(identifier: item_id)
+      modifier_group = ItemModifierGroup.find_by(modifier_group: group, item:)
 
       if modifier_group == nil then
         raise GraphQL::ExecutionError.new "modifier group is not on item"

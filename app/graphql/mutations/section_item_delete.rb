@@ -10,9 +10,9 @@ module Mutations
     argument :item_id, ID, required: true
 
     def resolve(section_id:, item_id:)
-      section = ::Menu.find_by(identifier:section_id)
-      item= ::Section.find_by(identifier:item_id)
-      section_item = SectionItem::find_by(section:, item:)
+      section = ::Menu.find_by(identifier: section_id)
+      item= ::Section.find_by(identifier: item_id)
+      section_item = SectionItem.find_by(section:, item:)
 
       if section_item == nil then
         raise GraphQL::ExecutionError.new "item is not in section"

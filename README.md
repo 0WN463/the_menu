@@ -58,7 +58,7 @@ Response:
 {"data":{"menus":[{"identifier":"menu_id","label":"The Grand Menu","sections":[{"identifier":"standard_dishes","label":"Standard Dishes","items":[{"identifier":"saba","label":"Saba Shioyaki","modifierGroups":[]},{"identifier":"sanma","label":"Sanma Shioyaki","modifierGroups":[]},{"identifier":"yakisoba","label":"Yaki Soba","modifierGroups":[]}]},{"identifier":"custom_dishes","label":"Customized Dishes","items":[{"identifier":"gyudon","label":"Gyudon","modifierGroups":[{"identifier":"topping","modifiers":[{"item":{"label":"egg"},"priceOverride":0.0},{"item":{"label":"ginger"},"priceOverride":0.5},{"item":{"label":"cheese"},"priceOverride":1.0}]}]}]}]}]}}
 ```
 
-
+# API
 
 Available queries:
 
@@ -97,3 +97,20 @@ modifierGroupDelete
 addModifierToModifierGroup
 removeModifierFromModifierGroup
 ```
+
+# Validations
+
+## Uniqueness validation
+
+For concrete resources (menu, section, item, modifier group), uniqueness of `identifier`.
+
+For relation resources which links resource A to resource B, uniqueness of pair of resource A and resource B.
+
+## Value validation
+
+Presence of `identifier` and `label`.
+
+Menu.state must be `draft` or `published`
+
+Item.item_type must be `product` or `component`
+

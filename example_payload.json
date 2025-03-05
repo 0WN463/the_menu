@@ -1,0 +1,1 @@
+{"query":"{ menus { identifier label sections { identifier label items { identifier label modifierGroups { identifier modifiers { item{label}, priceOverride } } } } } } "}

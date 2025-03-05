@@ -8,6 +8,13 @@ class MenuTest < ActiveSupport::TestCase
     assert_not_includes Menu.all, menu, "conflicted menu should not be saved"
   end
 
+  test "disallow to create menu with invalid state" do
+    menu = Menu.new(identifier: "other_identifier", label: "new menu", state: "invalid")
+    menu.save()
+
+    assert_not_includes Menu.all, menu, "conflicted menu should not be saved"
+  end
+
   test "able to create menu" do
     menu = Menu.new(identifier: "other_identifier", label: "new menu", state: "draft")
     menu.save()

@@ -10,6 +10,6 @@ class CreateItems < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    add_index(:items, [:identifier], unique: true)
+    add_index(:items, [ :identifier ], unique: true)
   end
 end

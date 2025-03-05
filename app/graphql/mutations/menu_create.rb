@@ -12,7 +12,7 @@ module Mutations
     argument :start_date, GraphQL::Types::ISO8601Date, required: false
     argument :end_date, GraphQL::Types::ISO8601Date, required: false
 
-    def resolve(identifier:, label:, state:"", start_date:nil, end_date:nil)
+    def resolve(identifier:, label:, state: "", start_date: nil, end_date: nil)
       menu = ::Menu.new(identifier:, label:, state:, start_date:, end_date:)
       raise GraphQL::ExecutionError.new "Error creating menu", extensions: menu.errors.to_hash unless menu.save
 

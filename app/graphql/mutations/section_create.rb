@@ -10,7 +10,7 @@ module Mutations
     argument :label, String, required: true
     argument :description, String, required: false
 
-    def resolve(identifier:, label:, description:"")
+    def resolve(identifier:, label:, description: "")
       section = ::Section.new(identifier:, label:, description:)
 
       if section == nil then
@@ -19,7 +19,7 @@ module Mutations
 
       raise GraphQL::ExecutionError.new "Error creating section", extensions: section.errors.to_hash unless section.save
 
-      { section: section}
+      { section: section }
     end
   end
 end

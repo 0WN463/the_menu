@@ -9,7 +9,7 @@
 #   end
 
 
-menu = Menu.find_or_create_by!(identifier:"menu_id") do |menu|
+menu = Menu.find_or_create_by!(identifier: "menu_id") do |menu|
   menu.label = "The Grand Menu"
   menu.state = "published"
   menu.start_date = DateTime.now()
@@ -101,7 +101,7 @@ Item.find_or_create_by!(identifier: "gyudon") do |item|
     group.selection_required_min = 1
     group.selection_required_max = 3
 
-   ["egg", "ginger", "cheese"].each_with_index do |topping, i|
+   [ "egg", "ginger", "cheese" ].each_with_index do |topping, i|
       topping_item = Item.find_or_create_by!(identifier: topping) do |item|
         item.identifier = topping
         item.item_type = "component"

@@ -9,7 +9,7 @@ module Mutations
     argument :identifier, ID, required: true
 
     def resolve(identifier:)
-      modifier_group = ::ModifierGroup.find_by(identifier:identifier)
+      modifier_group = ::ModifierGroup.find_by(identifier: identifier)
 
       if modifier_group == nil then
         raise GraphQL::ExecutionError.new "modifier group does not exists"

@@ -12,13 +12,13 @@ module Mutations
     argument :default_quantity, Integer, required: false
     argument :price_override, Float, required: false
 
-    def resolve(item_id:, modifier_group_id:, display_order:0, default_quantity:1, price_override:nil)
-      item = ::Item.find_by(identifier:item_id)
-      group = :: ModifierGroup.find_by(identifier:modifier_group_id)
-      modifier = Modifier::new(item:, modifier_group:group)
+    def resolve(item_id:, modifier_group_id:, display_order: 0, default_quantity: 1, price_override: nil)
+      item = ::Item.find_by(identifier: item_id)
+      group = :: ModifierGroup.find_by(identifier: modifier_group_id)
+      modifier = Modifier.new(item:, modifier_group: group)
       raise GraphQL::ExecutionError.new "Error adding modifier to group", extensions: modifier.errors.to_hash unless modifier.save!
 
-      { modifier:  modifier}
+      { modifier:  modifier }
     end
   end
 end

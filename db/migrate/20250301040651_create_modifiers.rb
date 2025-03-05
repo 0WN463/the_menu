@@ -10,6 +10,6 @@ class CreateModifiers < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    add_index :modifiers, [:modifier_group_id, :item_id], unique: true
+    add_index :modifiers, [ :modifier_group_id, :item_id ], unique: true
   end
 end

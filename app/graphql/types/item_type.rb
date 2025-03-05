@@ -10,6 +10,6 @@ module Types
     field :price, Float
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :modifier_groups, [Types::ModifierGroupType], null: false
+    field :modifier_groups, [ Types::ModifierGroupType ], null: false
   end
 end

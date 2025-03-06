@@ -60,6 +60,8 @@ Response:
 
 # API
 
+API definitions are available at [schema.graphql](./schema.graphql).
+
 Available queries:
 
 ```

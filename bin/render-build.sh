@@ -11,4 +11,4 @@ bundle exec rails assets:clean
 # Uncomment the following line:
 
 bundle exec rails db:migrate
-bundle exec rails db:seed:replant
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:seed:replant

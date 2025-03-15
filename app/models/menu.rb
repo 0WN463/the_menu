@@ -4,5 +4,5 @@ class Menu < ApplicationRecord
 
   validates :identifier, uniqueness: true, presence: true
   validates :label, presence: true
-  validates :state, inclusion: { in: %w(draft published) }, presence: true
+  validates :state, inclusion: { in: %w[draft published] }, presence: true
 end

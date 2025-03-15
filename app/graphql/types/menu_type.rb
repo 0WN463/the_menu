@@ -11,5 +11,9 @@ module Types
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :sections, [ Types::SectionType ], null: false
+
+    def sections
+      MenuSection.where(menu_id: object.id).order("display_order ASC").to_a.map { |s| s.section }
+    end
   end
 end

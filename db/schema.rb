@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_01_040816) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_15_033436) do
   create_table "item_modifier_groups", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "modifier_group_id", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_01_040816) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_url"
     t.index ["identifier"], name: "index_items_on_identifier", unique: true
   end
 

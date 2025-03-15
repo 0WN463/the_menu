@@ -10,4 +10,8 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :items, [ Types::ItemType ], null: false
   end
+
+    def items
+      SectionItem.where(section_id: object.id).order("display_order ASC").to_a.map { |s| s.item }
+    end
 end

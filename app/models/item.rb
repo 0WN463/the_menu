@@ -4,5 +4,5 @@ class Item < ApplicationRecord
 
   validates :identifier, uniqueness: true, presence: true
   validates :label, presence: true
-  validates :item_type, inclusion: { in: %w(component product) }, presence: true
+  validates :item_type, inclusion: { in: %w[component product] }, presence: true
 end

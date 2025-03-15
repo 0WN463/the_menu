@@ -13,7 +13,7 @@ module Mutations
     argument :price, Float, required: false
     argument :image_url, String, required: false
 
-    def resolve(identifier:, label:, item_type: "product", description: "", price: 0)
+    def resolve(identifier:, label:, item_type: "product", description: "", price: 0, image_url:"")
       if item_type != "product" && item_type != "component" then
         raise GraphQL::ExecutionError.new "invalid item type"
       end

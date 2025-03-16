@@ -8,11 +8,12 @@ module Mutations
 
     argument :menu_id, ID, required: true
     argument :section_id, ID, required: true
+    argument :display_order, Integer, required: false
 
-    def resolve(menu_id:, section_id:)
+    def resolve(menu_id:, section_id:, display_order:0)
       menu = ::Menu.find_by(identifier: menu_id)
       section= ::Section.find_by(identifier: section_id)
-      menu_section = MenuSection.new(menu:, section:)
+      menu_section = MenuSection.new(menu:, section:, display_order:)
 
       raise GraphQL::ExecutionError.new "Error adding menu to section", extensions: menu_section.errors.to_hash unless menu_section.save!
 

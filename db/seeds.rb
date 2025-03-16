@@ -65,7 +65,7 @@ customizable_section = Section.find_or_create_by!(identifier: "modifiable_sectio
   MenuSection.create!(
     menu: menu,
     section: section,
-    display_order: 1,
+    display_order: -1,
   )
 end
 
@@ -105,6 +105,7 @@ Item.find_or_create_by!(identifier: "salmon") do |item|
   SectionItem.create!(
     section: standard_section,
     item: item,
+    display_order: 1,
   )
 end
 
@@ -119,6 +120,7 @@ Item.find_or_create_by!(identifier: "udon") do |item|
   SectionItem.create!(
     section: standard_section,
     item: item,
+    display_order: -1,
   )
 end
 
